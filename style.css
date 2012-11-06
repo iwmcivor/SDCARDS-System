@@ -29,6 +29,8 @@ div.tile
 	position: relative;
 	background-color:#e7e7e7;
 	border-radius:1em;
+	-moz-box-shadow:2px 0px 8px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow:2px 0px 8px rgba(0, 0, 0, 0.6);
 	box-shadow:2px 0px 8px rgba(0, 0, 0, 0.6);
 }
 div.plus-tile-container
