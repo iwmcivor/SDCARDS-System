@@ -1,0 +1,93 @@
+<html>
+<head>
+	<link href="style.css" rel="stylesheet" type="text/css">
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"> </script>
+    <script>
+        /*if( window.File && window.FileReader ){
+            // great success!
+        }
+        else{
+            alert( 'File API not supported. You must use the plus button to upload files.' );
+        }*/
+    </script>
+</head>
+
+<body>
+<div class="bar">
+<a href="javascript:Logout();" style="right:10px"> Log Out </a>
+</div>
+ 
+<div class="tile-container">
+<div class="tile" id="tile1"><!--<div>DROP FILES HERE!</div><br />-->
+<h1>Sample File</h1>
+<div class="tile">
+<span id="no-download">No File Uploaded</span>
+<a href="" id="download" style="display:none;">Download File</a>
+</div>
+<div class="tile">
+<form name="file-up" action="RecieveUpload.php" action="post">
+<!--<div class="plus-tile-container"><div class="tile">
+<img src="plus.png" onclick="getFilePathFromDialog();">
+</div></div>
+<p id="filePath" name="filePath"></p><br />-->
+Select file to upload
+<input type="file" id="fileBrowser"/>
+<input type="submit" value="Upload File">
+</form>
+</div>
+</div></div>
+
+<!--<form action="fileAccept.php" enctype="multipart/form-data" method="POST">
+    <input type="file" name="file1" size="40"> </input>
+    <br>
+    <input type="submit"></input>
+</form>-->
+
+
+<script>
+function handleFileSelect( evt ) {
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    console.log( evt );
+    var files = evt.dataTransfer.files; // FileList object.
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+
+  function handleDragOver( evt ) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  }
+
+  // Setup the dnd listeners, for all tiles, dynamically.
+  var dropZone = document.getElementById('tile1');
+  dropZone.addEventListener('dragover', handleDragOver, false);
+  dropZone.addEventListener('drop', handleFileSelect, false);
+ 
+ function getFilePathFromDialog() {
+    document.getElementById('fileBrowser').click();
+}
+
+function SetFilePathDisplay() {
+	    document.getElementById('filePath').innerText = document.getElementById('fileBrowser').value;
+}
+
+function Logout()
+{
+	//ROBERT - clear session variables
+	document.location.href = "sdcards_login.html";
+}
+</script>
+</body>
+
+</html>

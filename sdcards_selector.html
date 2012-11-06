@@ -1,0 +1,57 @@
+<html>
+<head>
+	<link href="style.css" rel="stylesheet" type="text/css">
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"> </script>
+    <script>
+        /*if( window.File && window.FileReader ){
+            // great success!
+        }
+        else{
+            alert( 'File API not supported. You must use the plus button to upload files.' );
+        }*/
+		var strThisName = "";
+		var iThisID = -1;
+		
+		function HTMLInit()
+		{
+			/*DEMO BEGIN*/
+			strThisName = "SDCARDS Demonstration Project"
+			iThisID = 0;
+			AddProject(strThisName, iThisID);
+			/*DEMO END*/
+			
+			//Read from PHP and add as needed
+		}
+		
+		function AddProject(strProjName, iProjID)
+		{
+			var container = document.getElementById('tile1');
+			var tile = document.createElement('div');
+			tile.setAttribute('id', iProjID);
+			tile.setAttribute('class','tile');
+			tile.innerHTML = "<a href='javascript:OpenProjectMain(\"" + iProjID + "\");'>" + strProjName + "</a>";
+			container.appendChild(tile);
+		}
+		
+		function OpenProjectMain(iProjID)
+		{
+			/*DEMO BEGIN*/
+			document.location.href = "sdcards_main.html";
+			/*DEMO END*/
+		}
+    </script>
+</head>
+
+<body onload="javascript:HTMLInit()">
+<div class="bar">
+<a href="javascript:document.location.href = 'sdcards_login.html';" style="right:10px"> Log Out </a>
+</div>
+ 
+<div class="tile-container">
+<div class="tile" id="tile1">
+<h1>Select Project</h1>
+</div>
+</div>
+
+</body>
+</html>
