@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"> </script>
+		<script>
+			//more JS to go here
+			function AttemptLogin()
+			{
+				var params = {strUsername: ''; strPassword: ''}
+				params.strUsername = document.getElementById("tbUsername").value;
+				params.strPassword = document.getElementById("tbPassword").value;
+				/*$.ajax(
+					type: "POST",
+					url: "CheckLogin.php", 
+					data: params,
+					dataType: 
+					function({
+						
+					}
+				)*/
+			}
+		</script>
+	</head>
+	<body>
+		<div class="bar">
+			EXCITEMENT
+			<!--small img on left edge of bar
+			navigation imagebuttons on right side of bar-->
+		</div>
+		<!--large logo image-->
+		<div class="tile-container">
+			<div class="tile">
+				<div>
+					<h1>Login</h1>
+				</div>
+				<form name="auth" action="https://www.scu.edu/utility/novell/customcf/verify.cfm" method="post">
+				<div>
+					<input type="text" id="tbUsername" placeholder="Username" />
+				</div>
+				<div>
+					<input type="password" id="tbPassword" placeholder="Password" />
+				</div>
+				<div>
+					<input type="submit" value="Submit" />
+				</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
